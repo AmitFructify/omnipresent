@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import { Nav } from 'react-bootstrap';
 import "./LeftNav.scss";
+import { NavLink } from "react-router-dom";
 
 interface ILeftNavProps {};
 
@@ -8,17 +8,21 @@ const LeftNav: React.FC<ILeftNavProps> = (props: ILeftNavProps) => {
     return (
         <Fragment>
             <div className="appBrand">
-
+                <div className="logo"></div>
+                <div className="name">
+                    <div className="app">Omni Present</div>
+                    <div className="owner">by LIVSPACE</div>
+                </div>
             </div>
-            <Nav defaultActiveKey="/appointments" className="flex-column appNav">
-                <Nav.Link href="/notifications">Notifications</Nav.Link>
-                <Nav.Link href="/appointments">Appointments</Nav.Link>
-                <Nav.Link href="/orders">Orders</Nav.Link>
-                <Nav.Link href="/wallet">Wallet</Nav.Link>
-                <Nav.Link href="/catalog">Catalog</Nav.Link>
-                <Nav.Link href="/reports">Reports</Nav.Link>
-                <Nav.Link href="/help">Help</Nav.Link>
-            </Nav>
+            <div className="appNav">
+                <NavLink activeClassName="active" to="/notifications">Notifications</NavLink>
+                <NavLink activeClassName="active" to="/appointments">Appointments</NavLink>
+                <NavLink activeClassName="active" to="/orders">Orders</NavLink>
+                <NavLink activeClassName="active" to="/wallet">Wallet <span>&#x20B9; 1,50,000</span></NavLink>
+                <NavLink activeClassName="active" to="/catalog">Catalog</NavLink>
+                <NavLink activeClassName="active" to="/reports">Reports</NavLink>
+                <NavLink activeClassName="active" to="/help">Help</NavLink>
+            </div>
             <div className="appProfile">
                 <div className="image"></div>
                 <div className="name">John Doe</div>

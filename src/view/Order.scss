@@ -1,10 +1,13 @@
 @import "../theme.scss";
 
+.headerActions {
+    .btn {margin-left: 1em;}
+}
+
 .nav-tabs {
     background-color: #ffffff;
     border-bottom: none;
     box-shadow: 0px 4px 10px -12px #000;
-    padding: 0 1em;
     .nav-link {
         margin: 0.7em 1em 0em 1em;
         border: none;
@@ -34,4 +37,10 @@
             }
         }
     }
+}
+
+.heading {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 1em 0;
 }

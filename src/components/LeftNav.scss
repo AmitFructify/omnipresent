@@ -5,18 +5,41 @@
 .appBrand {
     height: $headerHeight;
     border-bottom: 1px solid $borderColor;
+    padding: 0 1em;
+    display: flex;
+    align-items: center;
+    .logo {
+        height: 30px;
+        width: 30px;
+        margin-right: 0.5em;
+        background-color: $primaryColor;
+    }
+    .name {
+        .app {font-weight: 600;}
+        .owner {font-size: 0.75em;}
+    }
 }
 
-.nav.appNav{
+.appNav{
     padding: 0.5em 0;
-    .nav-link {
+    display: flex;
+    flex-direction: column;
+    a {
         color: $secondaryTextColor;
         font-weight: 500;
         padding: 0.7em 1em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
         &:hover, &.active {
             background-color: #edf9ef;
         }
         &.active { color: $primaryColor; }
+        span {
+            font-size: 0.85em;
+            font-weight: normal;
+        }
     }
 }
 

@@ -15,6 +15,7 @@ function App() {
       <Row>
         <Col lg="2" className="appLeftNav paddingLeft0"><LeftNav /></Col>
         <Col className="paddingLeft0">
+        <Redirect to={{ pathname: '/appointments' }} />
           <Switch>
             <Route path="/notifications"><Appointment /></Route>
             <Route path="/appointments"><Appointment /></Route>
