@@ -1,0 +1,16 @@
+@import "../main.scss";
+@import "../theme.scss";
+
+.header {
+    height: $headerHeight;
+    border-bottom: 1px solid $borderColor;
+    background-color: #ffffff;
+    .row, .col {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        .input-group {
+            margin-bottom: 0 !important;
+        }
+    }
+}

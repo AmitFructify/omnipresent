@@ -1,0 +1,21 @@
+@import "./custom.scss";
+
+@import "./main.scss";
+@import "./theme.scss";
+
+body {
+    font-size: 0.9em;
+    background-color: $backgroundColor;
+}
+
+.appLeftNav {
+    border-right: 1px solid $borderColor;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: -4px 0px 5px 0px #000;
+}
+
+.paddingLeft0 {
+    padding: 0;
+}
+
