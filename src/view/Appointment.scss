@@ -26,19 +26,24 @@
     tr td{
         &.actions{
             display: flex;
-            > div {
-                height: 20px;
-                width: 20px;
-                cursor: pointer;
-            }
-            .accept {
-                margin-right: 0.5em;
-            }
-        }
-        &:first-child {
-        color: $primaryTextColor;
-        font-weight: 600;
         }
     }
-
+    &.appointments {
+        tr td{
+            &:first-child {
+                color: $primaryTextColor;
+                font-weight: 600;
+            }
+            &.actions{
+                > div {
+                    height: 20px;
+                    width: 20px;
+                    cursor: pointer;
+                }
+                .accept {
+                    margin-right: 0.5em;
+                }
+            }
+        }
+    }
 }

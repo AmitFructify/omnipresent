@@ -1,0 +1,17 @@
+@import "../theme.scss";
+
+.skuGridCell {
+    display: flex;
+    align-items: center;
+    .image {    
+        height: 3em;
+        width: 4em;
+        border: 1px solid $borderColor;
+        margin-right: 0.5em;
+        border-radius: 4px;
+    }
+    .detail {
+        .name {font-weight: 500;}
+        .code {font-size: 0.8em;color: $secondaryTextColor;}
+    }
+}

@@ -24,14 +24,12 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                     </InputGroup>
                 </Col>
                 <Col lg="4" className="headerActions">
-                    <Form>
-                        <Form.Check
-                            type="switch"
-                            id="custom-switch"
-                            label="Open Now"
-                            defaultChecked
-                        />
-                    </Form>
+                    <Form.Check
+                        type="switch"
+                        id="opennow"
+                        label="Open Now"
+                        defaultChecked
+                    />
                 </Col>
             </Header>
             <Container fluid>
@@ -44,7 +42,7 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                                         <Col>
                                             <h5 className="heading">
                                                 Pending</h5>
-                                            <Table hover>
+                                            <Table hover className="appointments">
                                                 <thead>
                                                     <tr>
                                                         <th>Customer Name</th>

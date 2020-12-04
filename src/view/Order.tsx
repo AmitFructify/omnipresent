@@ -24,14 +24,12 @@ const Order: React.FC<IOrderProps> = (props: IOrderProps) => {
                     </InputGroup>
                 </Col>
                 <Col lg="4" className="headerActions">
-                    <Form>
-                        <Form.Check
-                            type="switch"
-                            id="custom-switch"
-                            label="Open Now"
-                            defaultChecked
-                        />
-                    </Form>
+                    <Form.Check
+                        type="switch"
+                        id="opennow"
+                        label="Open Now"
+                        defaultChecked
+                    />
                 </Col>
             </Header>
             <Container fluid>

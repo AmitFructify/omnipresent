@@ -8,6 +8,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import LeftNav from "./components/LeftNav";
 import Appointment from "./view/Appointment";
 import Order from "./view/Order";
+import Catalog from './view/Catalog';
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
             <Route path="/appointments"><Appointment /></Route>
             <Route path="/orders"><Order /></Route>
             <Route path="/wallet"><Appointment /></Route>
-            <Route path="/catalog"><Appointment /></Route>
+            <Route path="/catalog"><Catalog /></Route>
             <Route path="/reports"><Appointment /></Route>
             <Route path="/help"><Appointment /></Route>
           </Switch>

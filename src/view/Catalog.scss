@@ -1,0 +1,16 @@
+@import "../theme.scss";
+
+.catalog {
+    tr td.actions .reStock {
+        color: #00b48c;
+        font-size: 0.9em;
+        font-weight: 500;
+        cursor: pointer;
+    }
+}
+
+table.reStock {
+    margin-top: 1em;
+    border: 1px solid #dee2e8;
+    border-top: none;
+}
