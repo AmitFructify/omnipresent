@@ -1,67 +1,71 @@
-import { InputGroup, FormControl, Row, Container, Col, Tabs, Tab, Form, Button, Table, Modal } from 'react-bootstrap';
-import React, { Fragment } from "react";
+import { InputGroup, FormControl, Row, Container, Col, Tabs, Tab, Form, Button, Table, Badge } from 'react-bootstrap';
+import React, { Fragment, useEffect, useState } from "react";
 import "./Catalog.scss";
+
+import { useDispatch, useSelector } from 'react-redux';
+import { products, fetchProducts } from "../store/catalogueReducer";
 
 import Header from "../components/Header";
 import CatalogSkuCard from "../components/CatalogSkuCard";
+import RestockModal from "../components/RestockModal";
 
 import { ReactComponent as Search } from "../icons/search.svg";
 
 interface ICatalogProps { };
 
-function MyVerticallyCenteredModal(props: any) {
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Request Stock
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-            <CatalogSkuCard/>
-            <Table hover className="reStock">
-                <thead>
-                    <tr>
-                        <th>Store</th>
-                        <th>Delivery Time</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><Form.Check inline label="Livspace 1" type="radio" id="livspace1" defaultChecked/></td>
-                        <td>2 Hours</td>
-                        <td><input type="number" defaultValue={1} style={{width: "30%"}}/></td>
-                        <td>
-                            &#x20B9; 65,000
-                        </td>
-                        <td>
-                            &#x20B9; 65,000
-                        </td>
-                    </tr>
-                </tbody>
-            </Table>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="light" onClick={props.onHide}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={props.onHide}>Pay &#x20B9; 65,000</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
-
 const Catalog: React.FC<ICatalogProps> = (props: ICatalogProps) => {
+    const dispatch = useDispatch();
 
-  const [modalShow, setModalShow] = React.useState(false);
+    const [modalShow, setModalShow] = React.useState(false);
+    const [product, setProduct] = useState(null);
+
+    useEffect(() => {
+        dispatch(fetchProducts());
+    }, [dispatch]);
+
+    const restockProduct = (product: any) => {
+        setModalShow(true);
+        setProduct(product);
+    };
+
+    const catalogProducts = useSelector(products);
+
+    const inStockProductItems = catalogProducts.map((product: any) =>
+        <tr key={product.id}>
+            <td><CatalogSkuCard product={{ image: product.image, display_name: product.product_display_name, code: product.sku }} /></td>
+            <td>12</td>
+            <td>&#x20B9; {product.prices}</td>
+            <td>
+                <Form.Check
+                    type="switch"
+                    id="product1in"
+                    label=""
+                    defaultChecked
+                />
+            </td>
+            <td className="actions">
+                <div className="edit">E</div>
+            </td>
+        </tr>
+    );
+
+    const outStockProductItems = catalogProducts.map((product: any) =>
+        <tr key={product.id}>
+            <td><CatalogSkuCard product={{ image: product.image, display_name: product.product_display_name, code: product.sku }} /></td>
+            <td>12</td>
+            <td>&#x20B9; {product.prices}</td>
+            <td>
+                <Form.Check
+                    type="switch"
+                    id="product1in"
+                    label=""
+                />
+            </td>
+            <td className="actions">
+                <div className="reStock" onClick={() => restockProduct(product)}>Request Stock</div>
+            </td>
+        </tr>
+    );
 
     return (
         <Fragment>
@@ -89,12 +93,20 @@ const Catalog: React.FC<ICatalogProps> = (props: ICatalogProps) => {
                     <Button variant="outline-primary">Add Product</Button>
                 </Col>
             </Header>
-            <Container fluid>
+            <Container fluid className="routeViewContent catalogContent">
                 <Row>
-                    <Col className="paddingLeft0">
+                    <Col className="paddingLeft0 tabWrapper">
                         <Tabs defaultActiveKey="products" id="uncontrolled-tab-example">
                             <Tab eventKey="products" title="Products">
                                 <Container fluid>
+                                    <Row>
+                                        <Col>
+                                            <Badge variant="light" className="active">Sofa</Badge>
+                                            <Badge variant="light">Chair</Badge>
+                                            <Badge variant="light">Storage</Badge>
+                                            <Badge variant="light">Table</Badge>
+                                        </Col>
+                                    </Row>
                                     <Row>
                                         <Col>
                                             <h5 className="heading">
@@ -110,38 +122,7 @@ const Catalog: React.FC<ICatalogProps> = (props: ICatalogProps) => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td><CatalogSkuCard/></td>
-                                                        <td>12</td>
-                                                        <td>&#x20B9; 65,000</td>
-                                                        <td>
-                                                            <Form.Check
-                                                                type="switch"
-                                                                id="product1in"
-                                                                label=""
-                                                                defaultChecked
-                                                            />
-                                                        </td>
-                                                        <td className="actions">
-                                                            <div className="edit">E</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><CatalogSkuCard/></td>
-                                                        <td>15</td>
-                                                        <td>&#x20B9; 87,000</td>
-                                                        <td>
-                                                            <Form.Check
-                                                                type="switch"
-                                                                id="product2in"
-                                                                label=""
-                                                                defaultChecked
-                                                            />
-                                                        </td>
-                                                        <td className="actions">
-                                                            <div className="edit">E</div>
-                                                        </td>
-                                                    </tr>
+                                                    {inStockProductItems}
                                                 </tbody>
                                             </Table>
                                         </Col>
@@ -150,6 +131,14 @@ const Catalog: React.FC<ICatalogProps> = (props: ICatalogProps) => {
                             </Tab>
                             <Tab eventKey="outofstock" title="Out of Stock">
                                 <Container fluid>
+                                    <Row>
+                                        <Col>
+                                            <Badge variant="light" className="active">Sofa</Badge>
+                                            <Badge variant="light">Chair</Badge>
+                                            <Badge variant="light">Storage</Badge>
+                                            <Badge variant="light">Table</Badge>
+                                        </Col>
+                                    </Row>
                                     <Row>
                                         <Col>
                                             <h5 className="heading">
@@ -165,36 +154,7 @@ const Catalog: React.FC<ICatalogProps> = (props: ICatalogProps) => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td><CatalogSkuCard/></td>
-                                                        <td>12</td>
-                                                        <td>&#x20B9; 65,000</td>
-                                                        <td>
-                                                            <Form.Check
-                                                                type="switch"
-                                                                id="product1out"
-                                                                label=""
-                                                            />
-                                                        </td>
-                                                        <td className="actions">
-                                                            <div className="reStock" onClick={() => setModalShow(true)}>Request Stock</div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><CatalogSkuCard/></td>
-                                                        <td>15</td>
-                                                        <td>&#x20B9; 87,000</td>
-                                                        <td>
-                                                            <Form.Check
-                                                                type="switch"
-                                                                id="product2out"
-                                                                label=""
-                                                            />
-                                                        </td>
-                                                        <td className="actions">
-                                                            <div className="reStock" onClick={() => setModalShow(true)}>Request Stock</div>
-                                                        </td>
-                                                    </tr>
+                                                    {outStockProductItems}
                                                 </tbody>
                                             </Table>
                                         </Col>
@@ -205,10 +165,11 @@ const Catalog: React.FC<ICatalogProps> = (props: ICatalogProps) => {
                     </Col>
                 </Row>
             </Container>
-            <MyVerticallyCenteredModal
+            {product && <RestockModal
                 show={modalShow}
+                product={product}
                 onHide={() => setModalShow(false)}
-            />
+            />}
         </Fragment>
     );
 };

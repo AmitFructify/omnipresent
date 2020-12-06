@@ -36,9 +36,9 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                     />
                 </Col>
             </Header>
-            <Container fluid>
+            <Container fluid className="routeViewContent">
                 <Row>
-                    <Col className="paddingLeft0">
+                    <Col className="paddingLeft0 tabWrapper">
                         <Tabs defaultActiveKey="pending" id="uncontrolled-tab-example">
                             <Tab eventKey="pending" title="Pending">
                                 <Container fluid>
@@ -58,22 +58,22 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Amit Parmar</td>
-                                                        <td>12 Jan, 2021</td>
-                                                        <td>Store</td>
-                                                        <td>9:00am-11:00am</td>
-                                                        <td className="actions">
-                                                            <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
-                                                            <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
                                                         <td>Arihant Jain
                                                             <div className="addressLink">View Home Address</div>
                                                         </td>
                                                         <td>28 Jan, 2021</td>
                                                         <td>Home</td>
                                                         <td>1:00pm-3:00pm</td>
+                                                        <td className="actions">
+                                                            <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
+                                                            <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Amit Parmar</td>
+                                                        <td>12 Jan, 2021</td>
+                                                        <td>Store</td>
+                                                        <td>9:00am-11:00am</td>
                                                         <td className="actions">
                                                             <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
                                                             <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>

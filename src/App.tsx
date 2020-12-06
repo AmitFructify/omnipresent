@@ -15,16 +15,16 @@ function App() {
     <Container fluid>
       <Row>
         <Col lg="2" className="appLeftNav paddingLeft0"><LeftNav /></Col>
-        <Col className="paddingLeft0">
+        <Col className="paddingLeft0 routeViewWrapper">
         <Redirect to={{ pathname: '/appointments' }} />
           <Switch>
-            <Route path="/notifications"><Appointment /></Route>
+            <Route path="/notifications"></Route>
             <Route path="/appointments"><Appointment /></Route>
             <Route path="/orders"><Order /></Route>
-            <Route path="/wallet"><Appointment /></Route>
+            <Route path="/wallet"></Route>
             <Route path="/catalog"><Catalog /></Route>
-            <Route path="/reports"><Appointment /></Route>
-            <Route path="/help"><Appointment /></Route>
+            <Route path="/reports"></Route>
+            <Route path="/help"></Route>
           </Switch>
         </Col>
       </Row>

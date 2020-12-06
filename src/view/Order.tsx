@@ -36,9 +36,9 @@ const Order: React.FC<IOrderProps> = (props: IOrderProps) => {
                     />
                 </Col>
             </Header>
-            <Container fluid>
+            <Container fluid className="routeViewContent">
                 <Row>
-                    <Col className="paddingLeft0">
+                    <Col className="paddingLeft0 tabWrapper">
                         <Tabs defaultActiveKey="new" id="uncontrolled-tab-example">
                             <Tab eventKey="new" title={
                                 <>

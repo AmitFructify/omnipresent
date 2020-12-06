@@ -9,6 +9,9 @@
         border: 1px solid $borderColor;
         margin-right: 0.5em;
         border-radius: 4px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
     .detail {
         .name {font-weight: 500;}

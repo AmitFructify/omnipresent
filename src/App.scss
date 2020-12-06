@@ -19,3 +19,23 @@ body {
     padding: 0;
 }
 
+.routeViewWrapper {
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    .routeViewContent {flex: 1;
+        >.row{
+            max-height: 100%;
+        }
+    }
+    .tabWrapper {
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
+        .tab-content{
+            flex: 1;
+            overflow-y: auto;
+        }
+    }
+}

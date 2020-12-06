@@ -14,3 +14,22 @@ table.reStock {
     border: 1px solid #dee2e8;
     border-top: none;
 }
+
+.catalogContent {
+    .badge{
+        padding: 0.5em 1em;
+        font-size: 1em;
+        font-weight: 500;
+        margin: 1em 0.8em 0 0;
+        border: 1px solid $secondaryTextColor;
+        border-radius: 2em;
+        color: $secondaryTextColor;
+        cursor: pointer;
+        background: none;
+        &.active {
+            border: 1px solid $primaryTextColor;
+            color: $primaryTextColor;
+            background: #ffffff;
+        }
+    }
+}

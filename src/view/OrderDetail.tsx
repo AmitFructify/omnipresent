@@ -1,63 +1,49 @@
-import { Row, Container, Col, Table, ListGroup, Badge, Modal, Form, Button } from 'react-bootstrap';
+import { Row, Container, Col, Table, ListGroup, Badge } from 'react-bootstrap';
 import "./OrderDetail.scss";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import { useDispatch, useSelector } from 'react-redux';
+import { cartProducts, fetchCartProducts } from "../store/catalogueReducer";
+
+import RestockModal from "../components/RestockModal";
 import CatalogSkuCard from "../components/CatalogSkuCard";
 
 interface IOrderDetailProps { };
 
-
-function MyVerticallyCenteredModal(props: any) {
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Request Stock
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-            <CatalogSkuCard/>
-            <Table hover className="reStock">
-                <thead>
-                    <tr>
-                        <th>Store</th>
-                        <th>Delivery Time</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><Form.Check inline label="Livspace 1" type="radio" id="livspace1" defaultChecked/></td>
-                        <td>2 Hours</td>
-                        <td><input type="number" defaultValue={1} style={{width: "30%"}}/></td>
-                        <td>
-                            &#x20B9; 65,000
-                        </td>
-                        <td>
-                            &#x20B9; 65,000
-                        </td>
-                    </tr>
-                </tbody>
-            </Table>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="light" onClick={props.onHide}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={props.onHide}>Pay &#x20B9; 65,000</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
-
 const OrderDetail: React.FC<IOrderDetailProps> = (props: IOrderDetailProps) => {
-    const [modalShow, setModalShow] = React.useState(false);
+    const dispatch = useDispatch();
+    const [modalShow, setModalShow] = useState(false);
+    const [product, setProduct] = useState(null);
+
+    useEffect(() => {
+        dispatch(fetchCartProducts());
+    }, [dispatch]);
+
+    const restockProduct = (product: any) => {
+        setModalShow(true);
+        setProduct(product);
+    };
+
+    const cartProductList = useSelector(cartProducts);
+
+    let totalAmount = 0;
+    const productItems = cartProductList.map((product: any, index: number) => {
+        totalAmount += product.prices * product.cart_item_count;
+
+        let randNo = Math.floor(Math.random() * 100);
+        return (<tr key={product.id}>
+            <td>
+                <CatalogSkuCard product={{ image: product.image, display_name: product.product_display_name, code: product.sku }} />
+                {index == 0 && <div className="stockRequest" onClick={() => restockProduct(product)}>Request Stock</div>}
+            </td>
+            <td>{product.cart_item_count}</td>
+            <td>&#x20B9; {product.prices}</td>
+            <td>&#x20B9; {product.prices * product.cart_item_count}</td>
+            {index != 0 && <td>{randNo}</td>}
+            {index == 0 && <td><Badge variant="danger">Out of Stock</Badge></td>}
+        </tr>);
+    });
+
     return (
         <Container fluid className="orderSummary">
             <Row>
@@ -65,12 +51,7 @@ const OrderDetail: React.FC<IOrderDetailProps> = (props: IOrderDetailProps) => {
                     <ListGroup variant="flush">
                         <ListGroup.Item className="active">
                             <div className="orderId">Order Id: 7890</div>
-                            <div className="orderDetail">2 Items for &#x20B9; 84,000</div>
-                            <div className="time">7:40 PM</div>
-                        </ListGroup.Item>
-                        <ListGroup.Item>
-                            <div className="orderId">Order Id: 7890</div>
-                            <div className="orderDetail">2 Items for &#x20B9; 84,000</div>
+                            <div className="orderDetail">{productItems.length} Items for &#x20B9; {totalAmount}</div>
                             <div className="time">7:40 PM</div>
                         </ListGroup.Item>
                     </ListGroup>
@@ -83,7 +64,7 @@ const OrderDetail: React.FC<IOrderDetailProps> = (props: IOrderDetailProps) => {
                                     <span>Vicky Jesuraj</span>
                                     <div className="userAddress">
                                         <div className="addressLink">View Delivery Address</div>
-                                        <div className="price">&#x20B9; 84,000</div>
+                                        <div className="price">&#x20B9; {totalAmount}</div>
                                     </div>
                                 </h5>
                                 <ul>
@@ -113,34 +94,17 @@ const OrderDetail: React.FC<IOrderDetailProps> = (props: IOrderDetailProps) => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><CatalogSkuCard /></td>
-                                            <td>1</td>
-                                            <td>&#x20B9; 65,000</td>
-                                            <td>&#x20B9; 65,000</td>
-                                            <td>100</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <CatalogSkuCard />
-                                                <div className="stockRequest" onClick={() => setModalShow(true)}>Request Stock</div>
-                                            </td>
-                                            <td>1</td>
-                                            <td>&#x20B9; 65,000</td>
-                                            <td>&#x20B9; 65,000</td>
-                                            <td>
-                                                <Badge variant="danger">Out of Stock</Badge>
-                                            </td>
-                                        </tr>
+                                        {productItems}
                                     </tbody>
                                 </Table>
                             </Col>
                         </Row>
                     </Container>
-                    <MyVerticallyCenteredModal
+                    {product && <RestockModal
                         show={modalShow}
+                        product={product}
                         onHide={() => setModalShow(false)}
-                    />
+                    />}
                 </Col>
             </Row>
         </Container>
