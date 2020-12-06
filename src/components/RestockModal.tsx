@@ -39,7 +39,7 @@ export default function RestockModal(props: any) {
                         <tr>
                             <td><Form.Check inline label="Livspace 1" type="radio" id="livspace1" defaultChecked /></td>
                             <td>2 Hours</td>
-                            <td><input type="number" defaultValue={quantity} style={{ width: "30%" }} onChange={(e) => handleChange(e)} /></td>
+                            <td><input type="number" min="1" defaultValue={quantity} style={{ width: "30%" }} onChange={(e) => handleChange(e)} /></td>
                             <td>
                                 &#x20B9; {props.product.prices}
                             </td>

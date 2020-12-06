@@ -34,13 +34,13 @@ const OrderDetail: React.FC<IOrderDetailProps> = (props: IOrderDetailProps) => {
         return (<tr key={product.id}>
             <td>
                 <CatalogSkuCard product={{ image: product.image, display_name: product.product_display_name, code: product.sku }} />
-                {index == 0 && <div className="stockRequest" onClick={() => restockProduct(product)}>Request Stock</div>}
+                {(index == 0 || index == 3) && <div className="stockRequest" onClick={() => restockProduct(product)}>Request Stock</div>}
             </td>
             <td>{product.cart_item_count}</td>
             <td>&#x20B9; {product.prices}</td>
             <td>&#x20B9; {product.prices * product.cart_item_count}</td>
-            {index != 0 && <td>{randNo}</td>}
-            {index == 0 && <td><Badge variant="danger">Out of Stock</Badge></td>}
+            {(index != 0 && index != 3) && <td>{randNo}</td>}
+            {(index == 0 || index == 3) && <td><Badge variant="danger">Out of Stock</Badge></td>}
         </tr>);
     });
 

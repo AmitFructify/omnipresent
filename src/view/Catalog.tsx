@@ -10,6 +10,7 @@ import CatalogSkuCard from "../components/CatalogSkuCard";
 import RestockModal from "../components/RestockModal";
 
 import { ReactComponent as Search } from "../icons/search.svg";
+import { ReactComponent as Edit } from "../icons/edit.svg";
 
 interface ICatalogProps { };
 
@@ -44,7 +45,7 @@ const Catalog: React.FC<ICatalogProps> = (props: ICatalogProps) => {
                 />
             </td>
             <td className="actions">
-                <div className="edit">E</div>
+                <div className="edit"><Edit width="18px" height="18px"/></div>
             </td>
         </tr>
     );

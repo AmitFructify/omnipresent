@@ -18,7 +18,7 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                 <Col>
                     <InputGroup className="mb-3">
                         <InputGroup.Prepend>
-                            <InputGroup.Text className="searchIcon"><Search width="16px" height="16px" /></InputGroup.Text>
+                            <InputGroup.Text className="searchIcon"><Search width="18px" height="18px" /></InputGroup.Text>
                         </InputGroup.Prepend>
                         <FormControl
                             placeholder="Enter Customer Name"
@@ -65,8 +65,8 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                                                         <td>Home</td>
                                                         <td>1:00pm-3:00pm</td>
                                                         <td className="actions">
-                                                            <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
-                                                            <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>
+                                                            <div className="accept"><Accept width="18px" height="18px" fill="#44a058"/></div>
+                                                            <div className="reject"><Reject width="18px" height="18px" fill="#dd3727"/></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -75,8 +75,8 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                                                         <td>Store</td>
                                                         <td>9:00am-11:00am</td>
                                                         <td className="actions">
-                                                            <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
-                                                            <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>
+                                                            <div className="accept"><Accept width="18px" height="18px" fill="#44a058"/></div>
+                                                            <div className="reject"><Reject width="18px" height="18px" fill="#dd3727"/></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -87,8 +87,8 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                                                         <td>Home</td>
                                                         <td>11:00am-1:00pm</td>
                                                         <td className="actions">
-                                                            <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
-                                                            <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>
+                                                            <div className="accept"><Accept width="18px" height="18px" fill="#44a058"/></div>
+                                                            <div className="reject"><Reject width="18px" height="18px" fill="#dd3727"/></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -97,8 +97,8 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                                                         <td>Store</td>
                                                         <td>3:00pm-5:00pm</td>
                                                         <td className="actions">
-                                                            <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
-                                                            <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>
+                                                            <div className="accept"><Accept width="18px" height="18px" fill="#44a058"/></div>
+                                                            <div className="reject"><Reject width="18px" height="18px" fill="#dd3727"/></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -107,8 +107,8 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                                                         <td>Store</td>
                                                         <td>5:00pm-7:00pm</td>
                                                         <td className="actions">
-                                                            <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
-                                                            <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>
+                                                            <div className="accept"><Accept width="18px" height="18px" fill="#44a058"/></div>
+                                                            <div className="reject"><Reject width="18px" height="18px" fill="#dd3727"/></div>
                                                         </td>
                                                     </tr>
                                                 </tbody>
