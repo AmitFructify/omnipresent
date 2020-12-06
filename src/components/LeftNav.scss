@@ -12,6 +12,9 @@
         height: 30px;
         width: 30px;
         margin-right: 0.5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .name {
         .app {font-weight: 600;}

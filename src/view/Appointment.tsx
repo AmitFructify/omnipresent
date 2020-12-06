@@ -4,6 +4,10 @@ import "./Appointment.scss";
 
 import Header from "../components/Header";
 
+import { ReactComponent as Search } from "../icons/search.svg";
+import { ReactComponent as Accept } from "../icons/accept.svg";
+import { ReactComponent as Reject } from "../icons/reject.svg";
+
 interface IAppointmentProps { };
 
 const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
@@ -14,7 +18,7 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                 <Col>
                     <InputGroup className="mb-3">
                         <InputGroup.Prepend>
-                            <InputGroup.Text id="basic-addon1">o</InputGroup.Text>
+                            <InputGroup.Text className="searchIcon"><Search width="16px" height="16px" /></InputGroup.Text>
                         </InputGroup.Prepend>
                         <FormControl
                             placeholder="Enter Customer Name"
@@ -59,28 +63,32 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                                                         <td>Store</td>
                                                         <td>9:00am-11:00am</td>
                                                         <td className="actions">
-                                                            <div className="accept">A</div>
-                                                            <div className="reject">R</div>
+                                                            <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
+                                                            <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Arihant Jain</td>
+                                                        <td>Arihant Jain
+                                                            <div className="addressLink">View Home Address</div>
+                                                        </td>
                                                         <td>28 Jan, 2021</td>
                                                         <td>Home</td>
                                                         <td>1:00pm-3:00pm</td>
                                                         <td className="actions">
-                                                            <div className="accept">A</div>
-                                                            <div className="reject">R</div>
+                                                            <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
+                                                            <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Shweta Kumari</td>
+                                                        <td>Shweta Kumari
+                                                            <div className="addressLink">View Home Address</div>
+                                                        </td>
                                                         <td>8 Feb, 2021</td>
                                                         <td>Home</td>
                                                         <td>11:00am-1:00pm</td>
                                                         <td className="actions">
-                                                            <div className="accept">A</div>
-                                                            <div className="reject">R</div>
+                                                            <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
+                                                            <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -89,8 +97,8 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                                                         <td>Store</td>
                                                         <td>3:00pm-5:00pm</td>
                                                         <td className="actions">
-                                                            <div className="accept">A</div>
-                                                            <div className="reject">R</div>
+                                                            <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
+                                                            <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -99,8 +107,8 @@ const Appointment: React.FC<IAppointmentProps> = (props: IAppointmentProps) => {
                                                         <td>Store</td>
                                                         <td>5:00pm-7:00pm</td>
                                                         <td className="actions">
-                                                            <div className="accept">A</div>
-                                                            <div className="reject">R</div>
+                                                            <div className="accept"><Accept width="16px" height="16px" fill="#44a058"/></div>
+                                                            <div className="reject"><Reject width="16px" height="16px" fill="#dd3727"/></div>
                                                         </td>
                                                     </tr>
                                                 </tbody>

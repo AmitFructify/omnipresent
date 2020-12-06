@@ -41,6 +41,7 @@
                     align-self: center;
                     font-size: 0.8em;
                     margin-right: 1em;
+                    cursor: pointer;
                 }
             }
         }
@@ -111,7 +112,7 @@
         .stockRequest {
             color: $primaryColor;
             margin-left: 5em;
-            margin-top: 0.5em;
+            margin-top: 0.4em;
             font-weight: 500;
             font-size: 0.9em;
             cursor: pointer;

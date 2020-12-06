@@ -6,6 +6,8 @@ import "./Order.scss";
 import Header from "../components/Header";
 import OrderDetail from "./OrderDetail";
 
+import { ReactComponent as Search } from "../icons/search.svg";
+
 interface IOrderProps { };
 
 const Order: React.FC<IOrderProps> = (props: IOrderProps) => {
@@ -16,7 +18,7 @@ const Order: React.FC<IOrderProps> = (props: IOrderProps) => {
                 <Col>
                     <InputGroup className="mb-3">
                         <InputGroup.Prepend>
-                            <InputGroup.Text id="basic-addon1">o</InputGroup.Text>
+                            <InputGroup.Text className="searchIcon"><Search width="16px" height="16px" /></InputGroup.Text>
                         </InputGroup.Prepend>
                         <FormControl
                             placeholder="Enter Order Id"

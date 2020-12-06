@@ -17,7 +17,7 @@ const LeftNav: React.FC<ILeftNavProps> = (props: ILeftNavProps) => {
     return (
         <Fragment>
             <div className="appBrand">
-                <div className="logo"><Logo width="30px" height="30px"/></div>
+                <div className="logo"><Logo width="26px" height="26px"/></div>
                 <div className="name">
                     <div className="app">Omni Present</div>
                     <div className="owner">by LIVSPACE</div>

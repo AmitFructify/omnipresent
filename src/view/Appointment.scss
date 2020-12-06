@@ -27,6 +27,13 @@
         &.actions{
             display: flex;
         }
+        .addressLink {
+            color: $primaryColor;
+            margin-top: 0.4em;
+            font-weight: 500;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
     }
     &.appointments {
         tr td{

@@ -5,6 +5,8 @@ import "./Catalog.scss";
 import Header from "../components/Header";
 import CatalogSkuCard from "../components/CatalogSkuCard";
 
+import { ReactComponent as Search } from "../icons/search.svg";
+
 interface ICatalogProps { };
 
 function MyVerticallyCenteredModal(props: any) {
@@ -68,10 +70,10 @@ const Catalog: React.FC<ICatalogProps> = (props: ICatalogProps) => {
                 <Col>
                     <InputGroup className="mb-3">
                         <InputGroup.Prepend>
-                            <InputGroup.Text id="basic-addon1">o</InputGroup.Text>
+                            <InputGroup.Text className="searchIcon"><Search width="16px" height="16px" /></InputGroup.Text>
                         </InputGroup.Prepend>
                         <FormControl
-                            placeholder="Enter Order Id"
+                            placeholder="Enter Product Name"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
                         />
