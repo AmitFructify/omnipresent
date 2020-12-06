@@ -36,7 +36,7 @@ function MyVerticallyCenteredModal(props: any) {
                     <tr>
                         <td><Form.Check inline label="Livspace 1" type="radio" id="livspace1" defaultChecked/></td>
                         <td>2 Hours</td>
-                        <td></td>
+                        <td><input type="number" defaultValue={1} style={{width: "30%"}}/></td>
                         <td>
                             &#x20B9; 65,000
                         </td>

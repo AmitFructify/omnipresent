@@ -1,0 +1,121 @@
+@import "../theme.scss";
+
+.orderSummary{
+    background: #ffffff;
+    box-shadow: 0px 0px 6px -4px #000;
+    .orderList {
+        border-right: 1px solid #ebebeb;
+        .list-group{
+            border-bottom: 1px solid #ebebeb;
+        }
+        .list-group-item {
+            border-color: #ebebeb;
+            cursor: pointer;
+            &.active {
+                background-color: #edf9ef;
+            }
+            .orderId {
+                color: $primaryTextColor;
+                font-weight: 600;
+                font-size: 0.92em;
+            }
+            .orderDetail {
+                color: $secondaryTextColor;
+                font-size: 0.85em;
+            }
+            .time {
+                color: $secondaryTextColor;
+                font-size: 0.85em;
+            }
+        }
+    }
+    .orderSteps{
+        border-bottom: 1px solid #ebebeb;
+        .heading {
+            display: flex;
+            justify-content: space-between;
+            .userAddress{
+                display: flex;
+                .addressLink{
+                    color: $primaryColor;
+                    align-self: center;
+                    font-size: 0.8em;
+                    margin-right: 1em;
+                }
+            }
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            margin: 2em 0 1.5em 0;
+            position: relative;
+            &::before {
+                content: "";
+                width: 88%;
+                position: absolute;
+                height: 1px;
+                background: $secondaryTextColor;
+                left: 6%;
+                top: 10px;
+            }
+            li {
+                font-size: 0.9em;
+                color: $secondaryTextColor;
+                position: relative;
+                height: 3.5em;
+                display: flex;
+                align-items: flex-end;
+                font-size: 0.9em;
+                &::before,&::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                }
+
+                &::before {
+                    width: 20px;
+                    height: 20px;
+                    top:0;
+                    border-radius: 10px;
+                    background: $secondaryTextColor;
+                }
+                &::after {
+                    background: #fff;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 5px;
+                    top: 5px;
+                }
+
+                &.active::before {
+                    background: $primaryColor;
+                }
+            }
+        }
+    }
+
+    .table{
+        border: 1px solid #ebebeb;
+        border-top: none;
+        border-radius: 6px;
+        .badge {
+            font-weight: 600;
+            padding: 0.4em 0.8em;
+            border-radius: 10px;
+        }
+        .stockRequest {
+            color: $primaryColor;
+            margin-left: 5em;
+            margin-top: 0.5em;
+            font-weight: 500;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+    }
+}
+

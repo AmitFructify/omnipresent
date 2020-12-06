@@ -1,8 +1,10 @@
-import { InputGroup, FormControl, Row, Container, Col, Tabs, Tab, Badge, Form, Table } from 'react-bootstrap';
+
+import { InputGroup, FormControl, Row, Container, Col, Tabs, Tab, Badge, Form } from 'react-bootstrap';
 import React, { Fragment } from "react";
 import "./Order.scss";
 
 import Header from "../components/Header";
+import OrderDetail from "./OrderDetail";
 
 interface IOrderProps { };
 
@@ -48,6 +50,7 @@ const Order: React.FC<IOrderProps> = (props: IOrderProps) => {
                                         <Col>
                                             <h5 className="heading">
                                                 New</h5>
+                                            <OrderDetail/>
                                         </Col>
                                     </Row>
                                 </Container>
