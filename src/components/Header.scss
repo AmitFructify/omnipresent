@@ -5,6 +5,10 @@
     height: $headerHeight;
     border-bottom: 1px solid $borderColor;
     background-color: #ffffff;
+    position: fixed;
+    z-index: 9;
+    top:0;
+    width: 83%;
     .row, .col {
         height: 100%;
         display: flex;

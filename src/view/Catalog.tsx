@@ -31,10 +31,12 @@ const Catalog: React.FC<ICatalogProps> = (props: ICatalogProps) => {
 
     const catalogProducts = useSelector(products);
 
-    const inStockProductItems = catalogProducts.map((product: any) =>
-        <tr key={product.id}>
+    const inStockProductItems = catalogProducts.map((product: any) => {
+        let randNo = Math.floor(Math.random() * 100);
+
+        return(<tr key={product.id}>
             <td><CatalogSkuCard product={{ image: product.image, display_name: product.product_display_name, code: product.sku }} /></td>
-            <td>12</td>
+            <td>{randNo}</td>
             <td>&#x20B9; {product.prices}</td>
             <td>
                 <Form.Check
@@ -47,13 +49,15 @@ const Catalog: React.FC<ICatalogProps> = (props: ICatalogProps) => {
             <td className="actions">
                 <div className="edit"><Edit width="18px" height="18px"/></div>
             </td>
-        </tr>
-    );
+        </tr>);
+    });
 
-    const outStockProductItems = catalogProducts.map((product: any) =>
-        <tr key={product.id}>
+    const outStockProductItems = catalogProducts.map((product: any) =>{
+        let randNo = Math.floor(Math.random() * 10);
+
+        return(<tr key={product.id}>
             <td><CatalogSkuCard product={{ image: product.image, display_name: product.product_display_name, code: product.sku }} /></td>
-            <td>12</td>
+            <td>{randNo}</td>
             <td>&#x20B9; {product.prices}</td>
             <td>
                 <Form.Check
@@ -65,8 +69,8 @@ const Catalog: React.FC<ICatalogProps> = (props: ICatalogProps) => {
             <td className="actions">
                 <div className="reStock" onClick={() => restockProduct(product)}>Request Stock</div>
             </td>
-        </tr>
-    );
+        </tr>)
+    });
 
     return (
         <Fragment>

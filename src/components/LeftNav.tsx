@@ -10,6 +10,7 @@ import { ReactComponent as Truck } from "../icons/truck.svg";
 import { ReactComponent as Report } from "../icons/report.svg";
 import { ReactComponent as Question } from "../icons/question.svg";
 import { ReactComponent as Catalog } from "../icons/catalog.svg";
+import { ReactComponent as Rightarrow } from "../icons/rightarrow.svg";
 
 interface ILeftNavProps {};
 
@@ -35,7 +36,7 @@ const LeftNav: React.FC<ILeftNavProps> = (props: ILeftNavProps) => {
             <div className="appProfile">
                 <div className="image"></div>
                 <div className="name">John Doe</div>
-                <div className="icon"></div>
+                <Rightarrow width="14px" height="14px"/>
             </div>
         </Fragment>
     );
