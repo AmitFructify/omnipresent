@@ -25,13 +25,13 @@ const LeftNav: React.FC<ILeftNavProps> = (props: ILeftNavProps) => {
                 </div>
             </div>
             <div className="appNav">
-                <NavLink activeClassName="active" to="/notifications"><span><Bell width="18px" height="18px"/>Notifications</span></NavLink>
+                <NavLink activeClassName="active" to="/notifications" className='disabled-link'><span><Bell width="18px" height="18px"/>Notifications</span></NavLink>
                 <NavLink activeClassName="active" to="/appointments"><span><Calendar width="18px" height="18px"/>Appointments</span></NavLink>
                 <NavLink activeClassName="active" to="/orders"><span><Truck width="18px" height="18px"/>Orders</span></NavLink>
-                <NavLink activeClassName="active" to="/wallet"><span><Wallet width="18px" height="18px"/>Wallet</span> <span className="wallet">&#x20B9; 1,50,000</span></NavLink>
+                <NavLink activeClassName="active" to="/wallet" className='disabled-link'><span><Wallet width="18px" height="18px"/>Wallet</span> <span className="wallet">&#x20B9; 7,50,600</span></NavLink>
                 <NavLink activeClassName="active" to="/catalog"><span><Catalog width="18px" height="18px"/>Catalog</span></NavLink>
-                <NavLink activeClassName="active" to="/reports"><span><Report width="18px" height="18px"/>Reports</span></NavLink>
-                <NavLink activeClassName="active" to="/help"><span><Question width="18px" height="18px"/>Help</span></NavLink>
+                <NavLink activeClassName="active" to="/reports" className='disabled-link'><span><Report width="18px" height="18px"/>Reports</span></NavLink>
+                <NavLink activeClassName="active" to="/help" className='disabled-link'><span><Question width="18px" height="18px"/>Help</span></NavLink>
             </div>
             <div className="appProfile">
                 <div className="image"></div>

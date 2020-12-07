@@ -47,6 +47,10 @@
                 font-weight: normal;
             }
         }
+        &.disabled-link {
+            pointer-events: none;
+            color: #bfbfbf;
+        }
     }
 }
 
